@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Моё мини-приложение</title>
-        <style>
-            body {
-                background: #fff;
-                font-family: sans-serif;
-                padding: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Привет, Telegram!</h1>
-        <p id="user"></p>
-    </body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 2em;
+        }
+        img {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Привет, <span id="name">гость</span>!</h2>
+    <img id="avatar" src="" alt="Avatar" style="display: none; margin-top: 1em;" />
+
+    <script>
+        Telegram.WebApp.ready();
+        const user = Telegram.WebApp.initDataUnsafe.user;
+
+        if (user) {
+        // Имя
+        document.getElementById("name").textContent = user.first_name;
+
+        // Аватарка через https://t.me/i/userpic/320/{user_id}.jpg
+        const avatarUrl = `https://t.me/i/userpic/320/${user.id}.jpg`;
+        const avatar = document.getElementById("avatar");
+        avatar.src = avatarUrl;
+        avatar.style.display = "block";
+        } else {
+        document.getElementById("name").textContent = "неизвестный пользователь";
+        }
+    </script>
+</body>
 </html>
