@@ -17,11 +17,29 @@
             width: 120px;
             height: 120px;
         }
+        .imageAva {
+            border: 1px;
+            border-color: black;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+        .textUser {
+            border: 1px;
+            border-color: black;
+            width: 700px;
+            height: 50px;
+            background-color: rgb(205, 152, 255);
+        }
     </style>
 </head>
 <body>
-    <h2>Привет, <span id="name">гость</span>!</h2>
-    <div>
+    <div class="textUser">
+        <h2>Привет, <span id="name">гость</span>!</h2>
+    </div>
+    
+    <div class="imageAva">
         <img id="avatar" scr="https://i.pinimg.com/originals/61/19/fc/6119fc262c381223936bc403da7dc337.jpg" alt="Avatar">
     </div>
     <script>
